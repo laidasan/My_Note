@@ -1,0 +1,109 @@
+.note {
+    
+    &__title {
+        width: 100%;
+        text-align: center;
+        border-bottom: .9px solid $color-grey-dark;
+    }
+    
+    &__list {
+        list-style: none;
+    }
+    
+    &__item {
+        display: block;
+        padding: .3rem 1.2rem;
+    }
+    
+    &__time {
+        // position: relative;
+        display: inline-block;
+        // width: 7.2rem;
+        width: 7.2rem;
+    }
+    
+    &__style {
+        display: inline-block;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        
+        background-color: $color-primary-light;
+        
+        margin-top: .3rem;
+        
+        // position: absolute;
+        // top:50%;
+        // left: 0;
+        // transform: translateY(-50%);
+    }
+    &__date {
+        display: inline-block;
+        
+        font-size: 1.5rem;
+        color: $color-primary-dark;
+    }
+    
+    &__link {
+        &:link,
+        &:visited {
+            text-decoration: none;
+            display: inline-block;
+            color: rgba($color-black,.3);
+            font-size: 2.1rem;
+        }
+        
+        &:hover,
+        &:active {
+            color: rgba($color-black,.6);
+        }
+    }
+    
+    &__content {
+        word-break: break-all;
+        max-width: 100%;
+        font-size: 1.65rem;
+        font-weight: 300;
+        line-height: 2.1rem;
+    }
+
+    
+    &__img-box {
+        width: 100%;
+        margin-top: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+
+
+    &__codepen {
+        &:link,
+        &:visited {
+            display: inline-block;
+            padding: .9rem 1.2rem;
+            border: .9px solid $color-black;
+            border-radius: 3px;
+
+            text-decoration: none;
+            font-size: 2.1rem;
+            letter-spacing: .3rem;
+            color: rgba($color-black,.3);
+
+            transition: all .45s;
+        }
+        &:hover {
+            border-color: transparent;
+            box-shadow: .9px 1.5px 9px 0 rgba($color-black,.6);
+            color: $color-black;
+            background-color: #ccccce;
+        }
+    }
+
+    &__point-list {
+        list-style: initial;
+        margin-left: 1.5rem;
+    }
+    &__point {
+        padding: .6rem;
+        font-weight: 600;
+    }
+}

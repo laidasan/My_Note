@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <style>
+        .red {
+            color: #f00;
+        }
+
+        .bk-red {
+            background-color: red;
+        }
+
+        .bk-green {
+            background-color: green;
+        }
+
+        .bk-blue {
+            background-color: blue;
+        }
+
+
+        .row {
+            display: flex;
+            width: 100%;
+        }
+
+        .item {
+            width: 100%;
+            margin: 0 .3rem 0;
+            /* width: 33.3333333%; */
+        }
+
+        .wrap {
+            width: 75%;
+            margin: 1.2rem auto 1.8rem;
+            display: flex;
+            /* border: .9px solid #000; */
+            box-shadow: 0 0 9px 6px rgba(0, 0, 0, .3);
+        }
+
+
+        .wrap>div {
+            display: flex;
+            /* width: 100% */
+            /* width: 150px; */
+            /* height: 150px; */
+
+            background-color: #fff;
+            border: .9px solid #000;
+
+        }
+
+        @media screen and (max-width:900px) {
+            .wrap {
+                flex-wrap: wrap;
+                margin: 1.2rem auto 12rem;
+            }
+        }
+
+
+        .item-row {
+            width: 100%;
+            height: 50px;
+            margin: 0 6px;
+        }
+
+        .item-col {
+            height: 100%;
+            width: 50px;
+            margin: 6px 0;
+        }
+
+        .item-wrap {
+            width: 50px;
+            height: 50px;
+            margin: 3px 6px;
+        }
+
+        .item2 {
+            text-align: center;
+            padding-top: 17px;
+            color: #fff;
+            border: .3px solid #000;
+        }
+
+
+        .flex-row-reverse {
+            flex-direction: row-reverse;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .flex-col-reverse {
+            flex-direction: column-reverse;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .flex-wrap-reverse {
+            flex-wrap: wrap-reverse;
+        }
+
+
+        .flex-end {
+            justify-content: flex-end;
+        }
+
+        .flex-center {
+            justify-content: center;
+        }
+
+        .flex-between {
+            justify-content: space-between;
+        }
+
+        .flex-around {
+            justify-content: space-around;
+        }
+
+        .flex-evenly {
+            justify-content: space-evenly;
+        }
+
+
+        .flex-align-start {
+            align-items: flex-start;
+        }
+
+        .flex-align-end {
+            align-items: flex-end;
+        }
+
+        .flex-align-center {
+            align-items: center;
+        }
+
+        .flex-align-stretch {
+            align-items: stretch;
+        }
+
+        .flex-align-baseline {
+            align-items: baseline;
+        }
+
+
+
+        .align-content-around {
+            align-content: space-around;
+        }
+
+        .align-content-between {
+            align-content: space-between;
+        }
+
+        .align-content-end {
+            align-content: flex-end;
+        }
+
+        .align-content-start {
+            align-content: flex-start;
+        }
+
+        .align-content-center {
+            align-content: center;
+        }
+
+        .align-content-stretch {
+            align-content: stretch;
+        }
+
+
+        .align-self-baseline {
+            align-self: baseline;
+        }
+
+
+        .order-main {
+            order: 1;
+        }
+
+        .order-other1 {
+            order: 2;
+        }
+
+        .order-other2 {
+            order: 3;
+        }
+
+        @media only screen and (max-width:900px) {
+            .order-main {
+                order: 2;
+            }
+
+            .order-other1 {
+                order: 1;
+            }
+        }
+
+
+        .grow-item:first-letter {
+            font-size: 36px;
+            color: #0fe;
+        }
+    </style>
+    <title>Note Home List</title>
+</head>
+
+<body>
+    <div class="navigation">
+        <input type="checkbox" name="" id="navi-toggle" class="navigation__checkbox">
+        <label for="navi-toggle" class="navigation__button">
+            <span class="navigation__icon"></span>
+        </label>
+        <div class="navigation__background"></div>
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="../index.html" class="navigation__link">Home</a></li>
+                <li class="navigation__item"><a href="../note-page/note_list.html" class="navigation__link">Note</a>
+                </li>
+                <li class="navigation__item"><a href="#" class="navigation__link">About me</a></li>
+                <li class="navigation__item" title="關於我"><a href="../note-page/note_amazing_effect.html"
+                        class="navigation__link">Interesting</a></li>
+                <li class="navigation__item"><a href="../cool-effect/cool_list.html" class="navigation__link">Cool
+                        effect</a></li>
+            </ul>
+        </nav>
+    </div>
+    <header>
+        <div class="header">
+            <div class="header__text-box">
+                <h1 class="heading-primary">My Note</h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="note-box">
+            <div class="note__title">
+                <h2 class="heading-secondary">Flex-詳介</h2>
+            </div>
+            <div class="note-container">
+                <h3 class="heading-tertiary u-margin-bottom-p">What? For?</h3>
+                <p class="note__content u-margin-bottom-small">
+                    上篇已經很簡單的使用flex,也感受到他的方便了，這篇就來詳詳細細的介紹它的原理以及更多的介紹吧!!
+                </p>
+                <h3 class="heading-tertiary u-margin-bottom-p">How?</h3>
+                <p class="note__content u-margin-bottom-p">
+                    Flex最最最重要就三個大重點:
+                    <ul class="note__point-list u-margin-bottom-small">
+                        <li class="note__point u-color-red">container & item (容器與內容器;父層與子層)</li>
+                        <li class="note__point u-color-red">Flexbox module (主軸與副軸)</li>
+                        <li class="note__point u-color-red">flex-grow;flex-shrink;flex-basis</li>
+                    </ul>
+                </p>
+                <h4 class="heading-fourth u-margin-bottom-p">Flexbox module</h4>
+                <p class="note__content">
+                    我們先來看看Flexbox module吧!其實他相當簡單!下面這張圖就是flexbox module。
+                </p>
+                <div class="note__img">
+                    <img src="../img/flex-intro_2/flexbox module.jpg" alt="Flexbox module"
+                        style="width:100%;height:100%;">
+                </div>
+                <p class="note__content u-margin-bottom-p">
+                    我們先來看 <strong class="u-color-primary-dark">main axis</strong> 與 <strong
+                        class="u-color-primary-dark">cross axis</strong>，
+                    main axis就是主軸的意思，而cross axis就是副軸，那什麼是主軸?什麼是副軸呢?我們最一開始我們可能會想:恩?阿不就是X軸跟Y軸嗎?
+                    其實不是喔!雖然現在看到圖片上的主軸跟副軸可能跟X軸Y軸的方向一樣，<strong>但是!!</strong>flex的主軸與副軸不是這樣分的。
+                </p>
+                <p class="note__content">
+                    <strong class="note__point-word u-color-primary-dark">主軸指的是當前flex排列的方向 ; 副軸指相對於主軸的縱向軸。</strong>
+                </p>
+                <p class="note__content u-margin-bottom-small">
+                    像圖片上看到的主軸為橫向的，那副軸就是縱向，而我們可以去更改排列的方式[row(橫、行) or col(縱、列)]，如果這時候排列的方像是縱向的，那主軸就是縱向，而副軸就是橫向，
+                    這非常非常重要喔!要記起來!!
+                </p>
+                <h4 class="heading-fourth u-margin-bottom-p">Container $ item</h4>
+                <p class="note__content ">
+                    接下來就可以講講屬性了，在講屬性之前，我們先把屬性分類一下，大致上分為兩種，一種是給container的，也就是父層容器，一種是給item的，也就是父層容器內的內容物，再父層容器設置的大多是將item如何排列，
+                    例如排列的方向為橫向或是縱向、是否要換行、主軸與副軸的對其方式，而內容的設置大多是當父層寬度伸縮時item自己本身要如何伸展等等!
+                </p>
+                <p class="note__content u-margin-bottom-small">
+                    OK!接下來就可以來講講屬性了!!
+                </p>
+                <h4 class="heading-fourth u-margin-bottom-p">屬性</h4>
+                <p class="note__content">flex的屬性有這些
+                    <ul class="note__point-list u-margin-bottom-small">
+                        <li class="note__point u-color-red">display</li>
+                        <li class="note__point u-color-red">flex-direction</li>
+                        <li class="note__point u-color-red">flex-wrap</li>
+                        <li class="note__point u-color-red">justify-content</li>
+                        <li class="note__point u-color-red">align-items</li>
+                        <li class="note__point u-color-red">align-self</li>
+                        <li class="note__point u-color-red">align-content</li>
+                        <li class="note__point u-color-red">order</li>
+                        <li class="note__point u-color-red">flex-grow;flex-shrink;flex-basis</li>
+                    </ul>
+                    大致上可以分成這兩類:(比較好思考)
+                </p>
+                <div class="row">
+                    <div class="item">
+                        <ul class="note__point-list u-margin-bottom-small item">
+                            <li class="note__point u-color-red">display</li>
+                            <li class="note__point u-color-red">flex-direction</li>
+                            <li class="note__point u-color-red">flex-wrap</li>
+                            <li class="note__point u-color-red">justify-content</li>
+                            <li class="note__point u-color-red">align-items</li>
+                            <li class="note__point u-color-red">align-content</li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul class="note__point-list u-margin-bottom-small item">
+                            <li class="note__point u-color-red">align-self</li>
+                            <li class="note__point u-color-red">order</li>
+                            <li class="note__point u-color-red">flex-grow;flex-shrink;flex-basis</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="note__content u-margin-bottom-small">左邊是給父層容器，而右邊是給子元素的。</p>
+
+                <h4 class="heading-fourth u-margin-bottom-p">容器的屬性</h4>
+                <p class="note__content u-margin-bottom-small">
+                    剛剛有提到的三大點之一 <strong>container & item</strong>，我們剛剛分了兩類屬性，而左邊那排就是給 <strong>Container(容器)</strong>的。
+                </p>
+                <h5 class="heading-fifth u-margin-bottom-p u-color-primary-dark">display</h5>
+                <p class="note__content u-margin-bottom-small">很簡單，就是display:flex。</p>
+                <h5 class="heading-fifth u-margin-bottom-p u-color-primary-dark">flex-direction</h5>
+                <p class="note__content">flex-firection是在控制內容元素的<strong>「排列方向」</strong>，有下來四個值可以設置。</p>
+                <ul class="note__point-list">
+                    <li class="note__point">row (Default)</li>
+                    <li class="note__point">row-reverse</li>
+                    <li class="note__point">column</li>
+                    <li class="note__point">column-reverse</li>
+                </ul>
+                <p class="note__content u-margin-bottom-p">reverse是﹝反向﹞的意思，就.....反過來排而已!來看點例子!</p>
+                <div class="wrap">
+                    <div class="item">
+                        <div class="item2 item-row bk-red">1</div>
+                        <div class="item2 item-row bk-green">2</div>
+                        <div class="item2 item-row bk-blue">3</div>
+                    </div>
+                    <div class="item flex-row-reverse">
+                        <div class="item2 item-row bk-red">1</div>
+                        <div class="item2 item-row bk-green">2</div>
+                        <div class="item2 item-row bk-blue">3</div>
+                    </div>
+                    <div class="item flex-col">
+                        <div class="item2 item-col bk-red">1</div>
+                        <div class="item2 item-col bk-green">2</div>
+                        <div class="item2 item-col bk-blue">3</div>
+                    </div>
+                    <div class="item flex-col-reverse">
+                        <div class="item2 item-col bk-red">1</div>
+                        <div class="item2 item-col bk-green">2</div>
+                        <div class="item2 item-col bk-blue">3</div>
+                    </div>
+                </div>
+                <p class="note__content u-margin-bottom-small" style="text-align:center;">
+                    由左到右依序是﹝row;row-reverse;col;col-reverse﹞</p>
+                <h5 class="heading-fifth u-margin-bottom-p u-color-primary-dark">flex-wrap</h5>
+                <p class="note__content">
+                    flex-wrap在簡單介紹flex的時候就有提過了，他就是負責內容元素的換行喔!!當我們使用flex來排版的時候，(預設)子元素是以單行的方始彈性撐滿父元素的，
+                    所以要使用flex-wrap來換行。以下是他的值
+                </p>
+                <ul class="note__point-list">
+                    <li class="note__point">nowrap</li>
+                    <li class="note__point">wrap</li>
+                    <li class="note__point">wrap-reverse</li>
+                </ul>
+                <div class="wrap">
+                    <div class="item">
+                        <div class="item2 bk-red item-row">1</div>
+                        <div class="item2 bk-red item-row">2</div>
+                        <div class="item2 bk-red item-row">3</div>
+                        <div class="item2 bk-red item-row">4</div>
+                        <div class="item2 bk-red item-row">5</div>
+                        <div class="item2 bk-red item-row">6</div>
+                    </div>
+                    <div class="item flex-wrap">
+                        <div class="item2 bk-red item-wrap">1</div>
+                        <div class="item2 bk-red item-wrap">2</div>
+                        <div class="item2 bk-red item-wrap">3</div>
+                        <div class="item2 bk-red item-wrap">4</div>
+                        <div class="item2 bk-red item-wrap">5</div>
+                        <div class="item2 bk-red item-wrap">6</div>
+                    </div>
+                    <div class="item flex-wrap-reverse">
+                        <div class="item2 bk-red item-wrap">1</div>
+                        <div class="item2 bk-red item-wrap">2</div>
+                        <div class="item2 bk-red item-wrap">3</div>
+                        <div class="item2 bk-red item-wrap">4</div>
+                        <div class="item2 bk-red item-wrap">5</div>
+                        <div class="item2 bk-red item-wrap">6</div>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="item flex-col">
+                        <div class="item2 bk-red item-wrap">1</div>
+                        <div class="item2 bk-red item-wrap">2</div>
+                        <div class="item2 bk-red item-wrap">3</div>
+                        <div class="item2 bk-red item-wrap">4</div>
+                        <div class="item2 bk-red item-wrap">5</div>
+                        <div class="item2 bk-red item-wrap">6</div>
+                    </div>
+                    <div class="item flex-col flex-wrap" style="height:350px">
+                        <div class="item2 bk-red item-wrap">1</div>
+                        <div class="item2 bk-red item-wrap">2</div>
+                        <div class="item2 bk-red item-wrap">3</div>
+                        <div class="item2 bk-red item-wrap">4</div>
+                        <div class="item2 bk-red item-wrap">5</div>
+                        <div class="item2 bk-red item-wrap">6</div>
+                        <div class="item2 bk-red item-wrap">7</div>
+                        <div class="item2 bk-red item-wrap">8</div>
+                    </div>
+                    <div class="item flex-wrap-reverse">
+                        <div class="item2 bk-red item-wrap">1</div>
+                        <div class="item2 bk-red item-wrap">2</div>
+                        <div class="item2 bk-red item-wrap">3</div>
+                        <div class="item2 bk-red item-wrap">4</div>
+                        <div class="item2 bk-red item-wrap">5</div>
+                        <div class="item2 bk-red item-wrap">6</div>
+                    </div>
+                </div>
+                <p class="note__content u-margin-bottom-small" style="text-align:center;">
+                    由左到右依序是﹝nowrap;wrap;wrap-reverse﹞
+                </p>
+                <h5 class="heading-fifth u-margin-bottom-p u-color-primary-dark">justify-content</h5>
+                <p class="note__content u-margin-bottom-p">
+                    justify-content是決定了內容的<strong>"主軸排列方式"</strong>，回到最上的flex box module，有兩個點分別為"main start"與"main
+                    end",justify-content就是利用這兩個點來計算排列方式的，能夠設定的值有以下六種。
+                </p>
+                <ul class="note__point-list">
+                    <li class="note__point">flex-start (Default)</li>
+                    <li class="note__point">flex-end</li>
+                    <li class="note__point">center</li>
+                    <li class="note__point">space-between</li>
+                    <li class="note__point">space-around</li>
+                    <li class="note__point">space-enenly</li>
+                </ul>
+                <div class="wrap ">
+                    <div class="item" style="height:210px;">
+                        <div class="item2 bk-red" style="width:30%;height:50px;margin:0 6px;">1</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;margin:0 6px;">2</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;margin:0 6px;">3</div>
+                    </div>
+                    <div class="item flex-end">
+                        <div class="item2 bk-red" style="width:30%;height:50px;margin:0 6px;">1</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;margin:0 6px;">2</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;margin:0 6px;">3</div>
+                    </div>
+                    <div class="item flex-center">
+                        <div class="item2 bk-red" style="width:30%;height:50px;margin:0 6px;">1</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;margin:0 6px;">2</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;margin:0 6px;">3</div>
+                    </div>
+                </div>
+                <div class="wrap" style="height:210px;">
+                    <div class="item flex-between">
+                        <div class="item2 bk-red" style="width:30%;height:50px;">1</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;">2</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;">3</div>
+                    </div>
+                    <div class="item flex-around">
+                        <div class="item2 bk-red" style="width:30%;height:50px;">1</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;">2</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;">3</div>
+                    </div>
+                    <div class="item flex-evenly">
+                        <div class="item2 bk-red" style="width:30%;height:50px;">1</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;">2</div>
+                        <div class="item2 bk-red" style="width:30%;height:50px;">3</div>
+                    </div>
+                </div>
+                <p class="note__content u-margin-bottom-p" style="text-align: center;">
+                    flex-start(default);flex-end;flex-center</p>
+                <p class="note__content u-margin-bottom-small" style="text-align: center;">
+                    flex-between;flex-around;flex-evenly</p>
+
+
+                <p class="note__content u-margin-bottom-p">
+                    在說align-items之前先把align-content提出來說，align-items跟align-content都是在設定副軸的排列方式的，差別就只在於:
+                </p>
+                <ul class="note__point-list u-margin-bottom-small">
+                    <li class="note__point">align-items <strong>(針對僅單行子物件)</strong></li>
+                    <li class="note__point">align-content <strong>(針對具多行子物件)</strong></li>
+                </ul>
+                <h5 class="heading-fifth u-margin-bottom-small u-color-primary-dark">align-items</h5>
+
+                <p class="note__content">
+                    剛剛排列完主軸的方向了，現在該換副軸囉!align-items就是決定內容的 <strong>"副軸排列方式"</strong>，一樣是兩個點分別為"cross start"與"cross
+                    end"，總共有五種。
+                </p>
+                <ul class="note__point-list">
+                    <li class="note__point">flex-start</li>
+                    <li class="note__point">flex-end</li>
+                    <li class="note__point">center</li>
+                    <li class="note__point">flex-stretch (default)</li>
+                    <li class="note__point">flex-baseline</li>
+                </ul>
+                <div class="wrap" style="height:210px">
+                    <div class="item flex-evenly flex-align-start">
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                    </div>
+                    <div class="item flex-evenly flex-align-end">
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+
+                    </div>
+                    <div class="item flex-evenly flex-align-center">
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                    </div>
+                    <div class="item flex-evenly flex-align-baseline" style="padding: 27px 0;">
+                        <div class="item2 bk-red" style="width:30%; padding: 30px 0;">1</div>
+                        <div class="item2 bk-green" style="width:30%; padding: 45px 0;">2</div>
+                        <div class="item2 bk-blue" style="width:30%; padding: 60px 0;">3</div>
+                    </div>
+                    <div class="item flex-evenly flex-align-stretch">
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                    </div>
+                </div>
+                <p class="note__content" style="text-align:center">flex-start;flex-end;center;baseline;stretch</p>
+                <p class="note__contetn u-margin-bottom-p">
+                    flex-start會對齊cross-start;flex-end則是會對齊cross-end，center很簡單，就是在中間;預設的stretch則是會自動填滿剩餘的空間!!baseline就感覺似乎看不出來，讓我來畫條線給你看。
+                </p>
+                <div class="u-margin-bottom-small"><img src="../img/flex-intro_2/baseline.PNG" alt="" class="note__img">
+                </div>
+                <h5 class="heading-fifth u-margin-bottom-p">align-content</h5>
+                <p class="note__content u-margin-bottom-p">
+                    剛剛在提到align-items前，有提到align-content是 <strong>針對具多行子物件</strong>的父層容器屬性，也就是有多行子物件時，副軸的排列方式。有以下幾種:
+                </p>
+                <ul class="note__point-list">
+                    <li class="note__point">flex-start</li>
+                    <li class="note__point">flex-end</li>
+                    <li class="note__point">center</li>
+                    <li class="note__point">space-between</li>
+                    <li class="note__point">space-around</li>
+                    <li class="note__point">flex-stretch (default)</li>
+                    <li class="note__point">flex-baseline</li>
+                </ul>
+                <div class="wrap" style="height:450px">
+                    <div class="item flex-wrap flex-around align-content-start">
+                        <div class="item2 bk-red" style="width:50px;height:50px;">1</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">2</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">3</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">4</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">5</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">6</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">7</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">8</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">9</div>
+                    </div>
+                    <div class="item flex-wrap flex-around align-content-end">
+                        <div class="item2 bk-red" style="width:50px;height:50px;">1</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">2</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">3</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">4</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">5</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">6</div>
+                    </div>
+                    <div class="item flex-wrap flex-around align-content-center">
+                        <div class="item2 bk-red" style="width:50px;height:50px;">1</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">2</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">3</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">4</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">5</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">6</div>
+                    </div>
+                </div>
+                <div class="wrap" style="height:450px">
+                    <div class="item flex-wrap flex-around align-content-around">
+                        <div class="item2 bk-red" style="width:50px;height:50px;">1</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">2</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">3</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">4</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">5</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">6</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">7</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">8</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">9</div>
+                    </div>
+                    <div class="item flex-wrap flex-around align-content-between">
+                        <div class="item2 bk-red" style="width:50px;height:50px;">1</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">2</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">3</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">4</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">5</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">6</div>
+                    </div>
+                    <div class="item flex-wrap flex-around align-content-stretch">
+                        <div class="item2 bk-red" style="width:50px;height:50px;">1</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">2</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">3</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">4</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">5</div>
+                        <div class="item2 bk-red" style="width:50px;height:50px;">6</div>
+                    </div>
+                </div>
+                <p class="note__content u-margin-bottom-p">
+                    這裡把align-items與align-content放在一起使用，且做出不同高度的item，會更清楚明白什麼是"針對單行"、"針對多行"</p>
+                <div class="wrap" style="height:600px">
+                    <div class="item flex-wrap flex-around flex-align-end align-content-around">
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing
+                            elit. </div>
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. </div>
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. </div>
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. </div>
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. </div>
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing
+                            elit. </div>
+                    </div>
+                </div>
+                <p class="note__content u-margin-bottom-small">
+                    這裡是由外層設置justify-content與align-content為space-around，而align-items為flex-end，這裡可以看到不同高度的item是對齊其它div的底部的，
+                    如果去修改成flex-start的話就會對齊其它item的頂部。(齊頭、齊底)
+                </p>
+                <div class="wrap" style="height:600px">
+                    <div class="item flex-wrap flex-around flex-align-start align-content-around">
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing
+                            elit. </div>
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. </div>
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. </div>
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. </div>
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. </div>
+                        <div class="item2 bk-red" style="width:30%;">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing
+                            elit. </div>
+                    </div>
+                </div>
+                <h4 class="heading-fourth u-margin-bottom-small">子元素的屬性</h4>
+                <h5 class="heading-fifth u-margin-bottom-p">align-self</h5>
+                <p class="note__content u-margin-bottom-small">
+                    align-self也是在設定副軸的對齊方式，對齊的方式也跟align-items一樣，依靠cross-start與cross-end。
+                    但是align-self雖然也是設定副軸的對其方式，不過 <strong>目的不一樣</strong>，align-self的設定目的在於複寫已經套用align-items的子元素。
+                </p>
+                <div class="wrap" style="height:210px">
+                    <div class="item flex-evenly flex-align-start">
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red align-self-baseline" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                    </div>
+                    <div class="item flex-evenly flex-align-end">
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red align-self-baseline" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+
+                    </div>
+                    <div class="item flex-evenly flex-align-center">
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red align-self-baseline" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                    </div>
+                    <div class="item flex-evenly flex-align-baseline" style="padding: 27px 0;">
+                        <div class="item2 bk-red" style="width:30%; padding: 30px 0;">1</div>
+                        <div class="item2 bk-green" style="width:30%; padding: 45px 0;">2</div>
+                        <div class="item2 bk-blue" style="width:30%; padding: 60px 0;">3</div>
+                    </div>
+                    <div class="item flex-evenly flex-align-stretch">
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                        <div class="item2 bk-red align-self-baseline" style="width:30%;">1</div>
+                        <div class="item2 bk-red" style="width:30%;">1</div>
+                    </div>
+                </div>
+                <p class="note__content" style="text-align:center">將中間的子元素align-self設定為baseline</p>
+                <h5 class="heading-fifth u-margin-bottom-p">order</h5>
+                <p class="note__content">
+                    order是設定子元素的排列順序的(例如用在rwd上，當螢幕小到一定程度的時候，下列排列方式就換換成column，而且main會在正中間，排列到第二個!)，設定數字是由小排到大的排列順序!
+                    試著將螢幕縮小至900px以下的時候，就會看出main被排列到中間。
+                </p>
+                <div class="wrap" style="height:210px;">
+                    <div class="item order-main" style="background-color: #ffa;">main</div>
+                    <div class="item order-other1" style="background-color: #faa;">other1</div>
+                    <div class="item order-other2" style="background-color: #aff;">other2</div>
+                </div>
+                <p class="note__content">而沒有設定order的話。</p>
+                <div class="wrap" style="height:210px;">
+                    <div class="item" style="background-color: #ffa;">main</div>
+                    <div class="item" style="background-color: #faa;">other1</div>
+                    <div class="item" style="background-color: #aff;">other2</div>
+                </div>
+                <p class="note__content u-margin-bottom-small">
+                    第一行原本的order-main為1,order-other1為2,order-other2為3，而畫面小於900px的時候main就改為2,other1改為1</p>
+                <h5 class="heading-fifth u-margin-bottom-p">flex-grow;flex-shrink;flex-basis</h5>
+                <p class="note__content u-margin-bottom-small">
+                    試想一下，今天你把小東西放到大箱子裡面，很有可能還是會有剩餘空間的吧!!使用flex做排版的時候也可能發生這種事情，
+                    會有剩餘的空間，flex-grow就是如何給子元素分配剩餘空間的方式喔!而flex-shrink則是相反，當箱子太小不夠放下東西的時候，就必須把東西壓縮，flex-shrink就是控制如何壓縮。
+                    flex-basis等等再談，讓我們先來談談flex-grow。
+                    來看個例子:
+                </p>
+                <h5 class="heading-fifth u-margin-bottom-p u-color-primary-dark">flex-grow</h5>
+                <div class="wrap u-margin-bottom-small">
+                    <div class="item flex-wrap flex-center">
+                        <div class="item2 grow-item" style="width:20%;background-color: #333;">1Lorem ipsum dolor sit
+                            amet, consectetur adipisicing elit. Molestiae non, nisi iure unde aliquam a architecto
+                            eligendi corporis quasi dolore autem reprehenderit eos magnam eius suscipit expedita iste
+                            dicta ullam.</div>
+                        <div class="item2 grow-item" style="width:20%;background-color: #333;">2Lorem ipsum dolor sit
+                            amet, consectetur adipisicing elit. Molestiae non, nisi iure unde aliquam a architecto
+                            eligendi corporis quasi dolore autem reprehenderit eos magnam eius suscipit expedita iste
+                            dicta ullam.</div>
+                        <div class="item2 grow-item" style="width:20%;background-color: #333;">3Lorem ipsum dolor sit
+                            amet, consectetur adipisicing elit. Molestiae non, nisi iure unde aliquam a architecto
+                            eligendi corporis quasi dolore autem reprehenderit eos magnam eius suscipit expedita iste
+                            dicta ullam.</div>
+                    </div>
+                </div>
+                <p class="note__content u-margin-bottom-p">
+                    上面這個大箱子裡面有三個小箱子，會發現還會有很多剩餘的空白空間吧!!這時候我們可以利要flex-grow來去分配剩餘的空間，比如說我把剩下的空間切成9份，再分配給第一個五份;第二個2份;第三個2份。
+                </p>
+                <div class="wrap u-margin-bottom-small">
+                    <div class="item flex-wrap flex-center">
+                        <div class="item2 grow-item" style="width:20%;background-color: #333;flex-grow: 5">1Lorem ipsum
+                            dolor sit amet, consectetur adipisicing elit. Molestiae non, nisi iure unde aliquam a
+                            architecto eligendi corporis quasi dolore autem reprehenderit eos magnam eius suscipit
+                            expedita iste dicta ullam.</div>
+                        <div class="item2 grow-item" style="width:20%;background-color: #333;flex-grow: 2">2Lorem ipsum
+                            dolor sit amet, consectetur adipisicing elit. Molestiae non, nisi iure unde aliquam a
+                            architecto eligendi corporis quasi dolore autem reprehenderit eos magnam eius suscipit
+                            expedita iste dicta ullam.</div>
+                        <div class="item2 grow-item" style="width:20%;background-color: #333;flex-grow: 2">3Lorem ipsum
+                            dolor sit amet, consectetur adipisicing elit. Molestiae non, nisi iure unde aliquam a
+                            architecto eligendi corporis quasi dolore autem reprehenderit eos magnam eius suscipit
+                            expedita iste dicta ullam.</div>
+                    </div>
+                </div>
+                <p class="note__content u-margin-bottom-small">
+                    就會變成這個樣子!超方便的我天，排版毒品。下面再說一個例子，比如說總共有四個小箱子，可是最後一個箱子因為空間不夠，所以被擠到下一行去了，而這是如果用flex-grow的話，會如何呢?這裡先假設他回的來，所以把剩餘空間切成12份，分配給第一個六份後，剩餘的平均分配。
+                </p>
+                <div class="wrap u-margin-bottom-small">
+                    <div class="item flex-wrap flex-center">
+                        <div class="item2 grow-item" style="width:27%;background-color: #333;flex-grow: 6;">1Lorem ipsum
+                            dolor sit
+                            amet, consectetur adipisicing elit. Molestiae non, nisi iure unde aliquam a architecto
+                            eligendi corporis quasi dolore autem reprehenderit eos magnam eius suscipit expedita iste
+                            dicta ullam.</div>
+                        <div class="item2 grow-item" style="width:27%;background-color: #333;flex-grow: 2;">2Lorem ipsum
+                            dolor sit
+                            amet, consectetur adipisicing elit. Molestiae non, nisi iure unde aliquam a architecto
+                            eligendi corporis quasi dolore autem reprehenderit eos magnam eius suscipit expedita iste
+                            dicta ullam.</div>
+                        <div class="item2 grow-item" style="width:27%;background-color: #333;flex-grow: 2;">3Lorem ipsum
+                            dolor sit
+                            amet, consectetur adipisicing elit. Molestiae non, nisi iure unde aliquam a architecto
+                            eligendi corporis quasi dolore autem reprehenderit eos magnam eius suscipit expedita iste
+                            dicta ullam.</div>
+                        <div class="item2 grow-item" style="width:27%;background-color: #333;flex-grow: 2;">4Lorem ipsum
+                            dolor sit
+                            amet, consectetur adipisicing elit. Molestiae non, nisi iure unde aliquam a architecto
+                            eligendi corporis quasi dolore autem reprehenderit eos magnam eius suscipit expedita iste
+                            dicta ullam.</div>
+                    </div>
+                </div>
+                <p class="note__content u-margin-bottom-small">
+                    你會發現!!咦!他回不來拉!!!有此得知，被擠下去的不會因為使用了伸展而排回到第一行，而是變成屬於下一行，在下一行的剩餘空間去分配，而這裡第二行只有他一個，所以就佔據掉整個剩餘空間囉!!</p>
+                <h5 class="heading-fifth u-margin-bottom-small u-color-primary-dark">flex-shrink</h5>
+                <p class="note__content u-margin-bottom-small">待整理!!</p>
+                <h5 class="heading-fifth u-margin-bottom-small u-color-primary-dark">flex-basis</h5>
+                <p class="note__content u-margin-bottom-p">
+                    flex-basis跟width很像，但它不是指定寬度，而是<strong>主軸方向的長度</strong>，比如說今天我的排列方式(flex-decoration)是row，那flex-basis就會是寬度(左右);反之如果主軸排列方式為col，那flex-basis就是指定高度了。
+                </p>
+                <p class="note__content u-margin-bottom-small red">※如果同時設定了width與flex-basis，會以basis優先喔!!</p>
+                <!-- <div class="wrap">
+                    <div class="item flex-wrap">
+                        <div class="item2 " style="background-color:#ffa;color:#f00;width:27%;flex-grow: 8;">Lorem
+                            ipsum, dolor sit amet consectetur adipisicing elit. Quo beatae ab fugit, quidem quisquam
+                            dolore tempore eaque mollitia exercitationem vel dicta, maxime non magnam pariatur vero id
+                            quia commodi blanditiis.</div>
+                        <div class="item2 " style="background-color:#ffa;color:#f00;width:27%;flex-grow: 2;">Lorem
+                            ipsum, dolor sit amet consectetur adipisicing elit. Quo beatae ab fugit, quidem quisquam
+                            dolore tempore eaque mollitia exercitationem vel dicta, maxime non magnam pariatur vero id
+                            quia commodi blanditiis.</div>
+                        <div class="item2 " style="background-color:#ffa;color:#f00;width:27%;flex-grow: 2;">Lorem
+                            ipsum, dolor sit amet consectetur adipisicing elit. Quo beatae ab fugit, quidem quisquam
+                            dolore tempore eaque mollitia exercitationem vel dicta, maxime non magnam pariatur vero id
+                            quia commodi blanditiis.</div>
+                        <div class="item2 " style="background-color:#ffa;color:#f00;width:27%;">Lorem ipsum, dolor sit
+                            amet consectetur adipisicing elit. Quo beatae ab fugit, quidem quisquam dolore tempore eaque
+                            mollitia exercitationem vel dicta, maxime non magnam pariatur vero id quia commodi
+                            blanditiis.</div>
+                    </div>
+                </div> -->
+                <h3 class="heading-tertiary u-margin-bottom-small">End</h3>
+                <p class="note__content u-margin-bottom-p">flex的介紹就先到這裡拉!之後有更多的應用會在分享給大家，在寫成筆記。flex對於單列式的排版真的非常好用，比起用float方便許多，不會有父層抓不到子元素而失去高度的問題(不用再clearfix拉!!萬歲)
+                    雖然flex好用，但到今日為止還是有些舊瀏覽器不支援flex，或是舊網站都是用比較傳統(老)的方式去做排版的，所以還是需要會使用float等等以前的排版方式喔!除非真的不去支援舊瀏覽器拉哈哈，不過能夠把瀏覽器都Hen斗住也是很爽的一件事情!
+                </p>
+
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
