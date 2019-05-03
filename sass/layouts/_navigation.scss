@@ -64,9 +64,13 @@
 
         z-index: 400;
 
+
         opacity: 0;
         width: 0;
-        transition: all .9s;
+        overflow: hidden;
+        // visibility: hidden;
+        // transition: all .9s;
+        transition: opacity .9s,width .9s;
     }
 
     &__background {
@@ -139,6 +143,7 @@
     &__checkbox:checked ~ &__nav {
         width: 100%;
         opacity: 1;
+        // visibility: visible;
     }
 
 }

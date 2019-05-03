@@ -31,6 +31,20 @@ body {
   letter-spacing: 1.2rem;
   color: #ee711d;
   font-weight: 600; }
+  .heading-secondary--javascript {
+    color: #009999; }
+  @media only screen and (max-width: 1100px) {
+    .heading-secondary {
+      font-size: 3.6rem;
+      letter-spacing: .9rem; } }
+  @media only screen and (max-width: 900px) {
+    .heading-secondary {
+      font-size: 3rem;
+      letter-spacing: .6rem; } }
+  @media only screen and (max-width: 600px) {
+    .heading-secondary {
+      font-size: 2.1rem;
+      letter-spacing: .3rem; } }
 
 .heading-tertiary {
   font-size: 3.6rem;
@@ -64,13 +78,30 @@ body {
 .u-color-red {
   color: #f00; }
 
+.u-color-white {
+  color: #fff; }
+
+.u-text-indent-p, .u-text-indent-code2 {
+  text-indent: 30px; }
+
+.u-text-indent-code {
+  text-indent: 15px; }
+
+.u-text-indent-code3 {
+  text-indent: 45px; }
+
+.note-box {
+  padding: 40px; }
+
 .note__title {
   width: 100%;
   text-align: center;
-  border-bottom: 0.9px solid #777; }
+  border-bottom: 0.9px solid #777;
+  padding: 1.2rem 1.8rem; }
 
 .note__list {
-  list-style: none; }
+  list-style: none;
+  margin-left: -30px; }
 
 .note__item {
   display: block;
@@ -85,13 +116,19 @@ body {
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
-  background-color: #ffa632;
   margin-top: .3rem; }
+  .note__style-htmlcss {
+    background-color: #ffa632; }
+  .note__style-javascript {
+    background-color: #00aaaa; }
 
 .note__date {
   display: inline-block;
-  font-size: 1.5rem;
-  color: #ee711d; }
+  font-size: 1.5rem; }
+  .note__date-htmlcss {
+    color: #ee711d; }
+  .note__date-javascript {
+    color: #00aaaa; }
 
 .note__link:link, .note__link:visited {
   text-decoration: none;
@@ -138,6 +175,10 @@ body {
 .note__point {
   padding: .6rem;
   font-weight: 600; }
+
+.note__code {
+  width: 100%;
+  background-color: #333; }
 
 .navigation__checkbox {
   display: none; }
@@ -188,7 +229,8 @@ body {
   z-index: 400;
   opacity: 0;
   width: 0;
-  transition: all .9s; }
+  overflow: hidden;
+  transition: opacity .9s,width .9s; }
 
 .navigation__background {
   position: fixed;
@@ -288,6 +330,10 @@ body {
     background: linear-gradient(120deg, #d84878, #b8305d, #f3862d, #ee711d);
     background-clip: text;
     -webkit-background-clip: text; }
+    .header__text-box--javascript {
+      background: linear-gradient(120deg, #d84878, #b8305d, #00aaaa, #00e9e9);
+      background-clip: text;
+      -webkit-background-clip: text; }
     @media only screen and (max-width: 1120px) {
       .header__text-box {
         text-align: center; } }

@@ -1,13 +1,21 @@
 .note {
     
+    &-box {
+        padding: 40px;
+    }
     &__title {
         width: 100%;
         text-align: center;
         border-bottom: .9px solid $color-grey-dark;
+
+
+        padding: 1.2rem 1.8rem;
     }
     
     &__list {
         list-style: none;
+        margin-left: -30px;
+
     }
     
     &__item {
@@ -28,20 +36,27 @@
         height: 1.2rem;
         border-radius: 50%;
         
-        background-color: $color-primary-light;
-        
         margin-top: .3rem;
+
+        &-htmlcss {
+            background-color: $color-primary-light;
+        }
+        &-javascript {
+            background-color: $color-secondary;
+        }
         
-        // position: absolute;
-        // top:50%;
-        // left: 0;
-        // transform: translateY(-50%);
     }
     &__date {
         display: inline-block;
         
         font-size: 1.5rem;
-        color: $color-primary-dark;
+
+        &-htmlcss {
+            color: $color-primary-dark;
+        }
+        &-javascript {
+            color: $color-secondary;
+        }
     }
     
     &__link {
@@ -59,6 +74,7 @@
         }
     }
     
+
     &__content {
         word-break: break-all;
         max-width: 100%;
@@ -105,5 +121,11 @@
     &__point {
         padding: .6rem;
         font-weight: 600;
+    }
+
+
+    &__code {
+        width: 100%;
+        background-color: $color-note-background-code;
     }
 }
